@@ -1,3 +1,2 @@
-# Get Started!
-
-Add files and start typing 🎉
+# Porto-generator
+Using this node.js applcation one can make their own portfolios

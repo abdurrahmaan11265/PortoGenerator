@@ -1,0 +1,18 @@
+<%- include('partials/header'); %>
+
+    <div class="form3Wrapper">
+        <form action="/result" method="post" class="form form3">
+
+            <input type="hidden" name="folderName" value="<%=folderName%>">
+
+            <h2>Hurray🎊🎉🎊 Your website is successfully created !!</h2>
+            <button type="submit" class="btn btn-success result-btn" id="form3Btn">Download your zip file
+                <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
+                <lord-icon src="https://cdn.lordicon.com/rxufjlal.json" trigger="hover" colors="primary:#e4e4e4"
+                    style="width:2rem;height:2rem">
+                </lord-icon>
+            </button>
+        </form>
+    </div>
+
+    <%- include('partials/footer'); %>

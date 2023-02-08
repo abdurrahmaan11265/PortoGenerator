@@ -1,0 +1,38 @@
+<%- include('partials/header'); %>
+    <form action="/create1" method="post" class="container form2 upload-form1 mt-5" enctype="multipart/form-data">
+        <div class="input-group row my-5">
+            <% for( let i=1; i <=personInfo.firstInfo.skillsNumber; i++ ) { %>
+                <div class="col-md-3 col-sm-4 col-9 mt-3 m-auto">
+                    <label for="<%= "skill" + i %>" class="form-label">
+                        <%= "Skill " + i + " name and img:" %>
+                    </label>
+                    <input type="text" name="<%= "skill" + i %>" class="form-control" id="<%= "skill" + i %>"
+                        placeholder="Skill" required>
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text">Description:</span>
+                            <input name="<%= "skillDescription" + i %>" type="text" class="form-control" required>
+                        </div>
+                        <input id="<%= "skillImg" + i %>" type="file" name="<%= "skillImg" + i %>" class="form-control upload-file" accept="image/png, image/gif, image/jpeg, image/jpg" data-max-size="1000000" required>
+                        <p id="<%= "output" + i %>"></p>
+                </div>
+                <% } %>
+        </div>
+        <div class="input-group my-3">
+            <span class="input-group-text">Hello text:</span>
+            <textarea name="helloText" class="form-control" aria-label="Hello text:" required></textarea>
+        </div>
+        <div class="input-group my-3">
+            <span class="input-group-text">Get in touch text:</span>
+            <textarea name="getInText" class="form-control" aria-label="Get in touch text:" required></textarea>
+        </div>
+        <input type="hidden" name="folderName" value="<%=folderName%>" >
+        <input type="hidden" name="skillsNumber" value="<%=skillsNumber%>" >
+        <!-- inputting the details from form 1 -->
+        <input type="hidden" name="profession" value="<%=personInfo.firstInfo.profession%>" >
+        <input type="hidden" name="name" value="<%=personInfo.firstInfo.name%>" >
+        <input type="hidden" name="email" value="<%=personInfo.firstInfo.email%>" >
+        <input type="hidden" name="instaId" value="<%=personInfo.firstInfo.instaId%>" >
+        <input type="hidden" name="imageName" value="<%=imageName%>" >
+        <button type="submit" class="btn btn-primary rounded-pill mb-3 m-auto"> Submit</button>
+    </form>
+    <%- include('partials/footer'); %>

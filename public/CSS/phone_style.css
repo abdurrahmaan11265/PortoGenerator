@@ -1,0 +1,259 @@
+/* css variables */
+:root {
+    --colour1: #951D26;
+    --colour2: #F9AF5E;
+    --colour3: #134441;
+    --colour4: #bfc5c5;
+    --font1: 'blanka';
+    --font2: 'aqum';
+    --font3: 'elianto';
+    --logoFont: 'nostalgia';
+
+}
+
+/* logo font */
+@font-face {
+    font-family: 'nostalgia';
+    src: url('/CSS/fonts/Nostalgia/nostalgia-webfont.woff2') format('woff2'),
+        url('/CSS/fonts/Nostalgia/nostalgia-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* header font */
+@font-face {
+    font-family: 'elianto';
+    src: url('/CSS/fonts/Elianto/elianto-regular-webfont.woff2') format('woff2'),
+        url('/CSS/fonts/Elianto/elianto-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'blanka';
+    src: url('/CSS/fonts/Blanka/blanka-regular-webfont.woff2') format('woff2'),
+        url('/CSS/fonts/Blanka/blanka-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* paragraph font */
+@font-face {
+    font-family: 'aqum';
+    src: url('/CSS/fonts/Aqum/aqum-webfont.woff2') format('woff2'),
+        url('/CSS/fonts/Aqum/aqum-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1 {
+    font-family: var(--font3);
+    font-size: 4.0625rem;
+    font-weight: 800;
+}
+
+p {
+    font-family: var(--font2);
+}
+
+.logo {
+    font-family: var(--logoFont);
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 900;
+    color: var(--colour1);
+}
+
+.navbar {
+    background-color: var(--colour2);
+    font-family: 'aqum';
+    font-size: 0.8rem;
+    box-shadow: 20px 20px 40px var(--colour3);
+}
+
+.introContainer::before {
+    content: "";
+    position: absolute;
+    background: url('../images/home/1.jpg') no-repeat center center/cover;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+}
+
+.introContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 87vh;
+    text-align: center;
+    color: var(--colour3);
+}
+
+.introContainer a {
+    font-size: 1.6rem;
+    border-radius: 34px;
+    box-shadow:  20px 20px 20px #7d7d7d;
+}
+form {
+    min-height: 100vh;
+}
+
+.form1 {
+    margin: auto;
+    /* height: 100vh; */
+}
+
+.form1 input {
+    border-color: var(--colour1);
+}
+
+.form1 label {
+    font-family: var(--font2);
+}
+
+.form1 label img {
+    width: 9rem;
+}
+
+.form1 p {
+    font-family: var(--font2);
+    font-size: 1rem;
+}
+
+.footer {
+    display: flex;
+    background-color: var(--colour3);
+    color: var(--colour4);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.form2 label {
+    font-family: var(--font2);
+    font-size: 0.8rem;
+    margin: auto;
+}
+
+.form3 {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.result-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.profiles-container {
+    text-align: center;
+    background: linear-gradient(140deg, var(--colour2), var(--colour4));
+    color: var(--colour3);
+}
+
+.profiles-container h3 {
+    font-size: 3rem;
+    font-family: var(--logoFont);
+    font-weight: 900;
+}
+
+.profiles-container p {
+    font-weight: 900;
+}
+
+.profiles-container h5 {
+    font-family: var(--font3);
+    color: var(--colour1);
+}
+
+.profile {
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+.profile:hover {
+    border-radius: 1rem;
+    background: transparent;
+    box-shadow: 20px 20px 60px var(--colour2),
+        -20px -20px 60px var(--colour4);
+}
+
+h2 {
+    font-family: var(--font1);
+    font-size: 1.5rem;
+}
+
+.home-scrolling {
+    /* height: 80vh; */
+    color: var(--colour3);
+    background-color: var(--colour4);
+    padding: 1rem;
+}
+
+.scrolling-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-img {
+    margin-top: 2rem;
+    height: 13rem;
+    border-radius: 2rem;
+    border-radius: 50px;
+background: #e0e0e0;
+box-shadow:  18px 18px 36px #777777,
+             -18px -18px 36px #ffffff;
+}
+
+.documentation-container {
+    background: var(--colour4);
+    min-height: 90vh;
+    padding: 1rem;
+}
+
+.documentation-container span {
+    font-family: var(--font3);
+    font-size: 1.5rem;
+}
+
+
+h4{
+    font-family: var(--font3);
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+code {
+    background-color: var(--colour2);
+    font-size: large;
+    color: #951D26;
+}
+
+.last-text {
+    margin: 2rem;
+    font-size: 1rem;
+}
+
+.documentation-img {
+    height: 13rem;
+    width: auto;
+    margin: auto;
+    border-radius: 2rem;
+}
