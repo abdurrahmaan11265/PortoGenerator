@@ -17,7 +17,7 @@ let multipleUpload = [];
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
         tempFileNumber++;
-        let tempFolderName = 'temp' + tempFileNumber;
+        let tempFolderName = 'vbnm' + tempFileNumber;
         fs.mkdir(__dirname + `/${tempFolderName}`, (err) => {
             if (err) {
                 console.log("error occurred in creating new directory", err);
@@ -37,7 +37,7 @@ let upload = multer({ storage: storage });
 let storage1 = multer.diskStorage({
     destination: (req, file, cb) => {
         tempFileNumber++;
-        let tempFolderName = 'temp' + tempFileNumber;
+        let tempFolderName = 'vbnm' + tempFileNumber;
         fs.mkdir(__dirname + `/${tempFolderName}`, (err) => {
             if (err) {
                 console.log("error occurred in creating new directory", err);
