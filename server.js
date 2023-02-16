@@ -11,13 +11,31 @@ let tempFileNumber = 0;
 let multipleUpload = [];
 // let skillImgNames = [];
 
+async function deleteDirectory(directoryPath) {
+  if (!fs.existsSync(directoryPath)) {
+    return; // directory doesn't exist, nothing to delete
+  }
+
+  const files = await fs.promises.readdir(directoryPath);
+  for (const file of files) {
+    const filePath = `${directoryPath}/${file}`;
+    const stats = await fs.promises.stat(filePath);
+    if (stats.isDirectory()) {
+      await deleteDirectory(filePath);
+    } else {
+      await fs.promises.unlink(filePath);
+    }
+  }
+  await fs.promises.rmdir(directoryPath);
+}
+
 
 // multer related work
 //asdfasdfasdf
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
         tempFileNumber++;
-        let tempFolderName = 'vbnm' + tempFileNumber;
+        let tempFolderName = Date.now() + tempFileNumber;
         fs.mkdir(__dirname + `/${tempFolderName}`, (err) => {
             if (err) {
                 console.log("error occurred in creating new directory", err);
@@ -37,7 +55,7 @@ let upload = multer({ storage: storage });
 let storage1 = multer.diskStorage({
     destination: (req, file, cb) => {
         tempFileNumber++;
-        let tempFolderName = 'vbnm' + tempFileNumber;
+        let tempFolderName = Date.now() + tempFileNumber;
         fs.mkdir(__dirname + `/${tempFolderName}`, (err) => {
             if (err) {
                 console.log("error occurred in creating new directory", err);
@@ -258,9 +276,10 @@ app.post("/result", (req, res) => {
         zip.addLocalFolder(`./${folderName}`);
         zip.writeZip(outputFile);
         console.log(`Created ${outputFile} successfully`);
-        fs.rm(`./${folderName}`, { recursive: true, force: true }, (err) => {
-            if (err) { throw err }
-            console.log(`${folderName} is deleted!`)
+        deleteDirectory(`./${folderName}`).then(() => {
+        console.log(`${folderName} is deleted!`);
+            }).catch((err) => {
+        console.error(`Error deleting ${folderName}: ${err}`);
         });
         res.download(outputFile, (err) => {
             if (err) {
