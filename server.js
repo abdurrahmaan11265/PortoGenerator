@@ -90,7 +90,7 @@ app.get("/create", (req, res) => {
     }
     semaphore = true;
     folderNumber++;
-    let folderName = 'portfolio' + folderNumber;
+    let folderName = 'portfolio' + Date.now();
     let destination = __dirname + `/${folderName}`;
     let source = __dirname + '/portfolio';
     fs.copy(source, destination, { overwrite: true }, function (err) {
